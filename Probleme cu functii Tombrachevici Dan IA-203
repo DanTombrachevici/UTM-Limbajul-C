@@ -1,0 +1,381 @@
+
+Problemele 1 a , b , c , d trebuie inca e , f
+ #include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int mai_mare(int a , int b , int c , int d ){
+    int max ;
+
+    max = a ;
+    if(max < b)
+        max = b;
+    if(max < c)
+        max = c;
+    if(max < d)
+        max = d;
+    return max;
+}
+
+int mai_mic(int a , int b , int c , int d ){
+    int min ;
+
+    min = a ;
+    if(min > b)
+        min = b;
+    if(min > c)
+        min = c;
+    if(min > d)
+        min = d;
+    return min;
+}
+int divizor(int a , int b , int c , int d){
+
+    while(a!=b){
+        if(a > b)
+            a = a - b;
+        else
+            b = b - a;
+    }
+    while(c!=d){
+        if(c > d)
+            c = c - d ;
+        else
+            d = d - c;
+    }
+    while(a!=c){
+        if(c > d)
+            a = a - c;
+        else
+            c = c - a ;
+
+    }
+    return a;
+}
+
+int multiplu(int a , int b , int c , int d , int div){
+    int x ;
+    x = ( a * b * c * d ) / div ;
+    return x ;
+}
+
+
+
+int main()
+{
+    int a , b , c , d , mare , mic , div , mult ;
+
+    printf("Introdu a ");
+    scanf("%d" , &a);
+    printf("Introdu b ");
+    scanf("%d" , &b);
+    printf("Introdu c ");
+    scanf("%d" , &c);
+    printf("Introdu d ");
+    scanf("%d" , &d);
+
+
+    mare = mai_mare(a , b , c , d) ;
+    mic = mai_mic(a , b , c , d);
+    div = divizor(a , b , c , d);
+    mult = multiplu(a , b , c , d , div);
+
+    printf("Numarul cel mai mare este : %d\n" , mare );
+    printf("Numarul cel mai mic este : %d\n" , mic);
+    printf("Cel mai mare divizor comun este %d\n" , div);
+    printf("Cel mai mic multiplu comun este %d" , mult);
+
+
+
+    return 0;
+}
+Problema 2 a , b ,c ,d ,e ,f 
+#include <stdio.h>
+#include <stdlib.h>
+
+int Prim(int a , int b , int c , int d){
+    if(a % 2 == 0){
+        printf("Numarul %d este par\n" , a);
+    }
+    else{
+        printf("Numarul %d este impar\n" , a);
+    }
+    if(b % 2 == 0){
+        printf("Numarul %d este par\n" , b);
+    }
+    else{
+        printf("Numarul %d este impar\n" , b);
+    }
+    if(c % 2 == 0){
+        printf("Numarul %d este par\n" , c);
+    }
+    else{
+        printf("Numarul %d este impar\n" , c);
+    }
+    if(d % 2 == 0){
+        printf("Numarul %d este par\n" , d);
+    }
+    else{
+        printf("Numarul %d este impar\n" , d);
+    }
+
+
+}
+
+int sumacifre(int a , int b , int c , int d){;
+    int sa = 0 , sb = 0 , sc = 0 , sd = 0 ;
+    int rest ;
+
+    while(a != 0){
+            rest = a % 10 ;
+            sa += rest ;
+            a = a / 10 ;
+    }
+
+      while(b != 0){
+            rest = b % 10 ;
+            sb += rest ;
+            b = b / 10 ;
+    }
+
+        while(c != 0){
+            rest = c % 10 ;
+            sc += rest ;
+            c = c / 10 ;
+    }
+        while(d != 0){
+            rest = d % 10 ;
+            sd += rest ;
+            d = d / 10 ;
+    }
+
+    printf("\nSuma cifrelor numarului a este %d\n", sa);
+    printf("Suma cifrelor numarului b este %d\n" , sb);
+    printf("Suma cifrelor numarului c este %d\n" , sc);
+    printf("Suma cifrelor numarului d este %d\n" , sd);
+
+
+    return ;
+}
+int Maxnum(int a , int b , int c , int d ){
+    int amax = 0 , bmax = 0 , cmax = 0 , dmax = 0 ;
+
+    while(a != 0 ){
+            if(a % 10 > amax)
+            amax = a % 10 ;
+    a = a / 10 ;
+    }
+        while(b != 0 ){
+            if(b % 10 > bmax)
+            bmax = b % 10 ;
+    b = b / 10 ;
+    }
+        while(c != 0 ){
+            if(c % 10 > cmax)
+            cmax = c % 10 ;
+    c = c / 10 ;
+    }
+        while(d != 0 ){
+            if(d % 10 > dmax)
+            dmax = d % 10 ;
+    d = d / 10 ;
+    }
+
+
+    printf("\nCea mai mare cifra din numarul a este %d\n" , amax);
+    printf("Cea mai mare cifra din numarul b este %d\n"  , bmax);
+    printf("Cea mai mare cifra din numarul c este %d\n" , cmax);
+    printf("Cea mai mare cifra din numarul d este %d\n" , dmax);
+
+    return ;
+}
+
+int AfisareDivizori(int a , int b , int c , int d){
+    int sa = 0 , sb = 0 , sc = 0 , sd = 0 ;
+    printf("\nDivizorii numarului %d sunt : \n" , a);
+
+     for(int ia = 2; ia <= a / 2; ia++)
+    {
+        if(a % ia == 0){
+            printf("%3d" , ia);
+            sa+=ia;
+        }
+
+}
+    printf("\nSuma divizorilor numarului %d este %d\n" , a , sa);
+    printf("\nDivizorii numarului %d sunt : \n" , b);
+     for(int ib = 2; ib <= b / 2; ib++)
+    {
+        if(b % ib == 0){
+            printf("%3d" , ib);
+            sb += ib;
+        }
+
+}
+    printf("\nSuma divizorilor numarului %d este %d\n" , b , sb);
+    printf("\nDivizorii numarului %d sunt : \n" , c);
+     for(int ic = 2; ic <= c / 2; ic++)
+    {
+        if(c % ic == 0){
+            printf("%3d" , ic);
+            sc += ic ;
+        }
+
+}
+    printf("\nSuma divizorilor numarului %d este %d\n" , c , sc);
+    printf("\nDivizorii numarului %d sunt : \n" , d);
+     for(int id = 2; id <= d / 2; id++)
+    {
+        if(d % id == 0){
+            printf("%3d" , id);
+            sd += id;
+        }
+
+}
+    printf("\nSuma divizorilor numarului %d este %d\n" , d , sd);
+    return ;
+}
+int Perfect(int a , int b , int c , int d){
+    int sa = 0 , sb = 0 , sc = 0 , sd = 0 ;
+    int ia = 2 , ib = 2 , ic = 2 , id = 2 ;
+
+    while(ia <=a / 2){
+        if(a % ia == 0){
+            sa += ia ;
+        }
+        ia += 1 ;
+    }
+    if(sa = a ){
+        printf("Numarul % d este perfect\n" , a);
+    }
+    else{
+        printf("Numarul %d nu este perfect\n" , a);
+    }
+
+        while(ib <= b / 2){
+        if(b % ib == 0){
+            sb += ib ;
+        }
+        ib += 1 ;
+    }
+    if(sb = b ){
+        printf("Numarul % d este perfect\n" , b);
+    }
+    else{
+        printf("Numarul %d nu este perfect\n" , b);
+    }
+
+        while(ic <=c / 2){
+        if(c % ic == 0){
+            sc += ic ;
+        }
+        ic += 1 ;
+    }
+    if(sc = c ){
+        printf("Numarul % d este perfect\n" , c);
+    }
+    else{
+        printf("Numarul %d nu este perfect\n" , c);
+    }
+
+        while(id <= d / 2){
+        if(d % id == 0){
+            sd += id ;
+        }
+        id += 1 ;
+    }
+    if(sd = d ){
+        printf("Numarul % d este perfect\n" , d);
+    }
+    else{
+        printf("Numarul %d nu este perfect\n" , d);
+    }
+
+
+
+
+}
+
+int main()
+{
+    int a , b , c , d ;
+    printf("Introduceti a , b , c , d \n");
+    scanf("%d%d%d%d" , &a , &b , &c , &d);
+
+    Prim(a , b , c , d);
+    sumacifre(a , b ,c , d);
+    Maxnum(a , b , c , d);
+    AfisareDivizori(a , b , c , d);
+    Perfect(a , b , c , d);
+
+
+    return 0;
+}
+
+Problema 3 a , b trebuie c , d
+#include <stdio.h>
+#include <stdlib.h>
+int Oglindire(int a , int b , int c , int d){
+    int ogl_a = 0 , ogl_b = 0 , ogl_c = 0 , ogl_d = 0 ;
+    int max = 0 , min ;
+
+    while (a != 0)
+	{
+		ogl_a = ogl_a * 10 + a % 10;
+		a = a / 10;
+	}
+	printf("Numarul oglindit a este %d\n" , ogl_a);
+
+	    while (b != 0)
+	{
+		ogl_b = ogl_b * 10 + b % 10;
+		b = b / 10;
+	}
+	printf("Numarul oglindit b este %d\n" , ogl_b);
+
+
+	    while (c != 0)
+	{
+		ogl_c = ogl_c * 10 + c % 10;
+		c = c / 10;
+	}
+	printf("Numarul oglindit c este %d\n" , ogl_c);
+
+
+	    while (d != 0)
+	{
+		ogl_d = ogl_d * 10 + d % 10;
+		d = d / 10;
+	}
+	printf("Numarul oglindit d este %d\n" , ogl_d);
+
+    if(max < ogl_a)
+        max = ogl_a ;
+    if(max < ogl_b)
+        max = ogl_b;
+    if(max < ogl_c)
+        max = ogl_c;
+    if(max < ogl_d)
+        max = ogl_d ;
+
+    min = ogl_a;
+    if(min > ogl_b)
+        min = ogl_b;
+    if(min > ogl_c)
+        min = ogl_c;
+    if(min > ogl_d)
+        min = ogl_d;
+    printf("Cel mai mare numar oglindit este = %d\n" , max);
+    printf("Cel mai mic numar oglindit este = %d\n" , min);
+}
+int main()
+{
+    int a , b , c , d;
+    printf("Introduceti a , b , c , d\n");
+    scanf("%d%d%d%d" , &a , &b , &c , &d);
+
+    Oglindire(a , b , c , d);
+
+
+    return 0;
+}
